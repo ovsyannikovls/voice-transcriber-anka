@@ -1,0 +1,184 @@
+# .gitignore - Voice Transcriber Anka
+
+## 🎤 Аудио и модели 
+*.wav
+*.mp3
+*.flac
+*.aac
+*.ogg
+*.m4a
+*.pcm
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+*.mlmodel
+*.tflite
+*.h5
+*.pb
+*.joblib
+*.pickle
+
+## Не игнорируем README и структуру папки models
+models/base/*
+!models/base/.gitkeep
+!models/README.md
+
+## 🔑 Конфиденциальные данные
+.env
+*.env
+config/keys.json
+config/secrets.*
+credentials.json
+*.key
+*.pem
+service-account-*.json
+**/service-accounts/*.json
+
+## 📊 Данные и логи (большие файлы)
+data/raw/
+data/processed/
+data/transcripts/raw/
+logs/
+*.log
+*.log.*
+wandb/
+lightning_logs/
+mlruns/
+**/results/
+**/outputs/
+**/samples/
+!data/samples/README.md
+!data/samples/example.wav
+
+## 🐍 Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+virtualenv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+*.egg
+*.egg-info/
+dist/
+build/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.tox/
+.prof
+*.prof
+*.stats
+
+## 📓 Jupyter
+.ipynb_checkpoints/
+*.ipynb
+!examples/*.ipynb
+!docs/*.ipynb
+*.nbconvert.ipynb
+*.nbconvert
+
+## 🛠️ IDE и редакторы
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.template.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+.project
+.pydevproject
+.settings/
+*.sublime-*
+*.code-workspace
+
+## 📦 Системные
+*.bak
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+*.sqlite3
+*.db
+*.sql
+
+## 🐳 Docker
+.dockerignore
+Dockerfile
+docker-compose*.yml
+*.tar
+*.tgz
+*.gz
+docker-data/
+**/docker/data/
+
+## 📊 Метрики и отчеты
+reports/
+**/reports/
+**/figures/
+*.html
+*.pdf
+!docs/*.pdf
+*.tex
+!docs/*.tex
+
+## 🧪 Тесты и бенчмарки
+**/test_outputs/
+**/test_data/
+benchmark_results/
+perf.data*
+*.perf
+
+## 🔧 Локальные конфиги
+config/local.yaml
+config/development.yaml
+*.local.*
+override.*
+*.override.*
+
+## 🎵 Специфичные для проекта
+**/voice_samples/
+**/my_voice/
+**/recordings/
+**/temp_audio/
+**/cache/
+**/tmp/
+
+## 📝 Временные файлы экспериментов
+experiments/**/output/
+experiments/**/temp/
+experiments/**/checkpoints/
+experiments/**/runs/
+**/experiments/**/logs/
+
+## 🔐 Не коммитить тестовые файлы
+test_*.wav
+sample_*.wav
+debug_*.wav
+
+## 🎯 Прочее
+*.part
+*.crdownload
+*.tmp
+*.temp
+*.lock
+*.lock.*
