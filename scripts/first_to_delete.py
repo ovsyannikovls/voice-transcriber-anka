@@ -5,7 +5,9 @@ from vosk import Model, KaldiRecognizer
 import queue
 import os
 
-model_path = "/models/base/vosk-model-small-ru-0.22"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
+model_path = os.path.join(ROOT_DIR, "models", "base", "vosk-model-small-ru-0.22")
 q = queue.Queue()
 
 def callback(indata, frames, time, status):
@@ -39,7 +41,7 @@ def main():
             else:
                 pass
 
-if main == "main":
+if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
