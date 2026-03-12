@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
-model_path = os.path.join(ROOT_DIR, "models", "base", "qwen2_2B")
+model_path = os.path.join(ROOT_DIR, "models", "base", "qwen2-2B")
 
 tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
 model = AutoModelForCausalLM.from_pretrained(

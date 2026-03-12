@@ -22,7 +22,7 @@ def main():
         return
 
     model = Model(model_path)
-    rec = KaldiRecognizer(model, 16000)  # 16000 Hz - частота дискретизации
+    rec = KaldiRecognizer(model, 16000)
 
     with sd.RawInputStream(samplerate=16000, blocksize=8000, device=None,
                            dtype='int16', channels=1, callback=callback):
