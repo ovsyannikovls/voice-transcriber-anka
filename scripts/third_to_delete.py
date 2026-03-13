@@ -9,6 +9,9 @@ import queue
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
+from fourth_to_delete import generate_speech
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(BASE_DIR, ".."))
 vosk_model_path = os.path.join(ROOT_DIR, "models", "base", "vosk-model-small-ru-0.22")
@@ -47,6 +50,7 @@ def callback(indata, frames, time, status):
         print(status, file=sys.stderr)
     q.put(bytes(indata))
 
+
 def clear_audio_queue(q):
     while not q.empty():
         try:
@@ -73,7 +77,10 @@ def main():
                 text = res.get('text', '')
                 if text:
                     print(f"Распознано: {text}")
-                    print("AI:", ai_question(text))
+                    audio = generate_speech(ai_question(text))
+                    sd.play(audio, 48000)
+                    sd.wait()
+                    print("AI говорит: ...")
                     clear_audio_queue(q)
             else:
                 pass
